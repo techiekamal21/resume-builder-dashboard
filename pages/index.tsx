@@ -382,6 +382,45 @@ export default function Home() {
               ✓ Auto-saved to local storage
             </div>
           )}
+
+          {/* Footer */}
+          <footer className="bg-gray-800 text-white py-6 mt-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row justify-between items-center">
+                <div className="mb-4 md:mb-0">
+                  <p className="text-sm">
+                    © 2024 techiekamal21 & Connect Kreations • Built with ❤️ for job seekers
+                  </p>
+                </div>
+                <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+                  <div className="text-center md:text-left">
+                    <p className="text-sm font-medium text-blue-300 mb-1">
+                      🚀 Career Opportunities Available!
+                    </p>
+                    <p className="text-xs text-gray-300">
+                      Visit Connect Kreations for latest Job Opportunities and updates for internship, Full time and professional positions and more!
+                    </p>
+                  </div>
+                  <div className="flex space-x-4">
+                    <a
+                      href="https://connectkreations.com/careers"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                    >
+                      View Jobs
+                    </a>
+                    <a
+                      href="mailto:careers@connectkreations.com"
+                      className="border border-gray-600 hover:border-gray-500 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                    >
+                      Contact Us
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
         </div>
       </DndProvider>
     </ErrorBoundary>

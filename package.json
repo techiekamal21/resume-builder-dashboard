@@ -2,15 +2,15 @@
   "name": "resume-builder-dashboard",
   "version": "1.0.0",
   "description": "Professional resume builder with real-time preview and export functionality",
-  "author": "techiekamal & Connect Kreations",
+  "author": "techiekamal21 & Connect Kreations",
   "license": "MIT",
-  "homepage": "https://github.com/techiekamal/resume-builder-dashboard#readme",
+  "homepage": "https://github.com/techiekamal21/resume-builder-dashboard#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techiekamal/resume-builder-dashboard.git"
+    "url": "git+https://github.com/techiekamal21/resume-builder-dashboard.git"
   },
   "bugs": {
-    "url": "https://github.com/techiekamal/resume-builder-dashboard/issues"
+    "url": "https://github.com/techiekamal21/resume-builder-dashboard/issues"
   },
   "keywords": [
     "resume",

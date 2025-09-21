@@ -177,4 +177,13 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 **Thank you for contributing to Resume Builder Dashboard!** 🎉
 
-*Maintained with ❤️ by techiekamal & Connect Kreations*
+*Maintained with ❤️ by techiekamal21 & Connect Kreations*
+
+---
+
+## 💼 Career Opportunities
+
+**Visit Connect Kreations for latest Job Opportunities and updates for internship, Full time and professional positions and more!**
+
+🌐 **Visit:** [connectkreations.com/careers](https://connectkreations.com/careers)  
+📧 **Contact:** [careers@connectkreations.com](mailto:careers@connectkreations.com)

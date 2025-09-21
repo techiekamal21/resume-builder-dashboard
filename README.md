@@ -151,7 +151,7 @@ npm start
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-**Copyright © 2024 techiekamal & Connect Kreations**
+**Copyright © 2024 techiekamal21 & Connect Kreations**
 
 ## 🤝 Contributing
 
@@ -166,9 +166,9 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## 🐛 Bug Reports & Feature Requests
 
-- **Bug Reports**: [Create a bug report](https://github.com/techiekamal/resume-builder-dashboard/issues/new?template=bug_report.md)
-- **Feature Requests**: [Request a feature](https://github.com/techiekamal/resume-builder-dashboard/issues/new?template=feature_request.md)
-- **Questions**: [Ask a question](https://github.com/techiekamal/resume-builder-dashboard/issues/new?template=question.md)
+- **Bug Reports**: [Create a bug report](https://github.com/techiekamal21/resume-builder-dashboard/issues/new?template=bug_report.md)
+- **Feature Requests**: [Request a feature](https://github.com/techiekamal21/resume-builder-dashboard/issues/new?template=feature_request.md)
+- **Questions**: [Ask a question](https://github.com/techiekamal21/resume-builder-dashboard/issues/new?template=question.md)
 
 ## 🔒 Security
 
@@ -178,8 +178,8 @@ If you discover a security vulnerability, please see our [Security Policy](SECUR
 
 ### Getting Help
 1. Check the [documentation](README.md) and [deployment guide](DEPLOYMENT.md)
-2. Search [existing issues](https://github.com/techiekamal/resume-builder-dashboard/issues)
-3. Create a [new issue](https://github.com/techiekamal/resume-builder-dashboard/issues/new/choose) if needed
+2. Search [existing issues](https://github.com/techiekamal21/resume-builder-dashboard/issues)
+3. Create a [new issue](https://github.com/techiekamal21/resume-builder-dashboard/issues/new/choose) if needed
 
 ### Community Guidelines
 Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before participating in our community.
@@ -241,8 +241,8 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
 ## 👥 Authors & Maintainers
 
-- **techiekamal** - *Lead Developer* - [GitHub Profile](https://github.com/techiekamal)
-- **Connect Kreations** - *Project Sponsor & Design* - [Website](https://connectkreations.com)
+- **techiekamal21** - *Lead Developer* - [GitHub Profile](https://github.com/techiekamal21)
+- **Connect Kreations** - *Project Sponsor & Design* - [Website](https://connectkreations.com) | [Jobs & Opportunities](https://connectkreations.com/careers)
 
 ## 🙏 Acknowledgments
 
@@ -253,13 +253,17 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
 ## 📊 Project Stats
 
-![GitHub stars](https://img.shields.io/github/stars/techiekamal/resume-builder-dashboard?style=social)
-![GitHub forks](https://img.shields.io/github/forks/techiekamal/resume-builder-dashboard?style=social)
-![GitHub issues](https://img.shields.io/github/issues/techiekamal/resume-builder-dashboard)
-![GitHub license](https://img.shields.io/github/license/techiekamal/resume-builder-dashboard)
+![GitHub stars](https://img.shields.io/github/stars/techiekamal21/resume-builder-dashboard?style=social)
+![GitHub forks](https://img.shields.io/github/forks/techiekamal21/resume-builder-dashboard?style=social)
+![GitHub issues](https://img.shields.io/github/issues/techiekamal21/resume-builder-dashboard)
+![GitHub license](https://img.shields.io/github/license/techiekamal21/resume-builder-dashboard)
 
 ---
 
 **Built with ❤️ for job seekers everywhere**
 
-**© 2025 techiekamal & Connect Kreations • Production-ready • Performance optimized • Fully accessible**
+**© 2024 techiekamal21 & Connect Kreations • Production-ready • Performance optimized • Fully accessible**
+
+
+
+*Join our team and build amazing products that impact thousands of users worldwide!*
