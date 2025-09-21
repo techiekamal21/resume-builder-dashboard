@@ -151,7 +151,7 @@ npm start
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-**Copyright © 2024 techiekamal21 & Connect Kreations**
+**Copyright © 2025 techiekamal21 & Connect Kreations**
 
 ## 🤝 Contributing
 
