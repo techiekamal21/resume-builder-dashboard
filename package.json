@@ -1,7 +1,30 @@
 {
   "name": "resume-builder-dashboard",
   "version": "1.0.0",
-  "private": true,
+  "description": "Professional resume builder with real-time preview and export functionality",
+  "author": "techiekamal & Connect Kreations",
+  "license": "MIT",
+  "homepage": "https://github.com/techiekamal/resume-builder-dashboard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techiekamal/resume-builder-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/techiekamal/resume-builder-dashboard/issues"
+  },
+  "keywords": [
+    "resume",
+    "cv",
+    "resume-builder",
+    "job-application",
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "pdf-export",
+    "word-export"
+  ],
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",

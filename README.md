@@ -147,15 +147,42 @@ npm start
 
 ## License
 
-MIT License - feel free to use this project for personal or commercial purposes.
+## 📄 License
 
-## Support
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-If you encounter any issues:
-1. Check the browser console for errors
-2. Ensure you're using a supported browser
-3. Try clearing your browser cache
-4. Open an issue on GitHub
+**Copyright © 2024 techiekamal & Connect Kreations**
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+### Quick Start for Contributors
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 🐛 Bug Reports & Feature Requests
+
+- **Bug Reports**: [Create a bug report](https://github.com/techiekamal/resume-builder-dashboard/issues/new?template=bug_report.md)
+- **Feature Requests**: [Request a feature](https://github.com/techiekamal/resume-builder-dashboard/issues/new?template=feature_request.md)
+- **Questions**: [Ask a question](https://github.com/techiekamal/resume-builder-dashboard/issues/new?template=question.md)
+
+## 🔒 Security
+
+If you discover a security vulnerability, please see our [Security Policy](SECURITY.md) for responsible disclosure guidelines.
+
+## 📞 Support & Community
+
+### Getting Help
+1. Check the [documentation](README.md) and [deployment guide](DEPLOYMENT.md)
+2. Search [existing issues](https://github.com/techiekamal/resume-builder-dashboard/issues)
+3. Create a [new issue](https://github.com/techiekamal/resume-builder-dashboard/issues/new/choose) if needed
+
+### Community Guidelines
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before participating in our community.
 
 ## 🚀 Production Ready
 
@@ -212,8 +239,27 @@ git init && git add . && git commit -m "Initial commit"
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
+## 👥 Authors & Maintainers
+
+- **techiekamal** - *Lead Developer* - [GitHub Profile](https://github.com/techiekamal)
+- **Connect Kreations** - *Project Sponsor & Design* - [Website](https://connectkreations.com)
+
+## 🙏 Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/) and [React](https://reactjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Icons by [Lucide](https://lucide.dev/)
+- Export functionality powered by [jsPDF](https://github.com/parallax/jsPDF) and [docx](https://github.com/dolanmiu/docx)
+
+## 📊 Project Stats
+
+![GitHub stars](https://img.shields.io/github/stars/techiekamal/resume-builder-dashboard?style=social)
+![GitHub forks](https://img.shields.io/github/forks/techiekamal/resume-builder-dashboard?style=social)
+![GitHub issues](https://img.shields.io/github/issues/techiekamal/resume-builder-dashboard)
+![GitHub license](https://img.shields.io/github/license/techiekamal/resume-builder-dashboard)
+
 ---
 
 **Built with ❤️ for job seekers everywhere**
 
-**Production-ready • Performance optimized • Fully accessible**
+**© 2024 techiekamal & Connect Kreations • Production-ready • Performance optimized • Fully accessible**

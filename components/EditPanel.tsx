@@ -1,3 +1,12 @@
+/**
+ * Edit Panel Component
+ * 
+ * @description Interactive editing interface for resume sections
+ * @author techiekamal & Connect Kreations
+ * @copyright 2024 techiekamal & Connect Kreations
+ * @license MIT
+ */
+
 'use client';
 
 import React, { useState } from 'react';

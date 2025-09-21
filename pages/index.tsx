@@ -1,3 +1,12 @@
+/**
+ * Resume Builder Dashboard - Main Page
+ * 
+ * @description Professional resume builder with real-time preview and export functionality
+ * @author techiekamal & Connect Kreations
+ * @copyright 2024 techiekamal & Connect Kreations
+ * @license MIT
+ */
+
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { DndProvider } from 'react-dnd';

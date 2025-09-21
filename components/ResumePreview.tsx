@@ -1,3 +1,12 @@
+/**
+ * Resume Preview Component
+ * 
+ * @description Professional resume preview with real-time rendering
+ * @author techiekamal & Connect Kreations
+ * @copyright 2024 techiekamal & Connect Kreations
+ * @license MIT
+ */
+
 'use client';
 
 import React from 'react';
