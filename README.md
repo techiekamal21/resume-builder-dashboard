@@ -262,7 +262,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
 **Built with ❤️ for job seekers everywhere**
 
-**© 2024 techiekamal21 & Connect Kreations • Production-ready • Performance optimized • Fully accessible**
+**© 2025 techiekamal21 & Connect Kreations • Production-ready • Performance optimized • Fully accessible**
 
 ---
 
