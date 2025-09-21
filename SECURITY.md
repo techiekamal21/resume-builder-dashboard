@@ -17,7 +17,7 @@ We take the security of Resume Builder Dashboard seriously. If you believe you h
 
 **Please do NOT report security vulnerabilities through public GitHub issues.**
 
-Instead, please report them via email to: [INSERT SECURITY EMAIL]
+Instead, please report them via email to: techiekamal21@gmail.com
 
 You should receive a response within 48 hours. If for some reason you do not, please follow up via email to ensure we received your original message.
 
@@ -110,9 +110,9 @@ We appreciate the security research community's efforts to improve the security 
 
 For security-related questions or concerns:
 
-- **Security Email**: [INSERT SECURITY EMAIL]
+- **Security Email**: techiekamal21@gmail.com
 - **Maintainers**: techiekamal & Connect Kreations
-- **GitHub**: [INSERT GITHUB PROFILES]
+- **GitHub**: [[INSERT GITHUB PROFILES]](https://github.com/techiekamal21)
 
 ## Legal
 
