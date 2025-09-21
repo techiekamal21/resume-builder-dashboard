@@ -86,7 +86,7 @@ For answers to common questions about this code of conduct, see the FAQ at [http
 
 **Contact Information:**
 - Project Maintainers: techiekamal & Connect Kreations
-- Email: [Insert contact email]
-- GitHub: [Insert GitHub profile links]
+- Email: techiekamal21@gmail.com
+- GitHub: [[]](https://github.com/techiekamal21)
 
 *This Code of Conduct is enforced to ensure a welcoming and inclusive environment for all contributors.*
