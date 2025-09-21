@@ -23,138 +23,145 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 const initialResumeData: ResumeData = {
   personalInfo: {
-    fullName: 'Kamal Patel',
-    email: 'kamalpatel@pts@gmail.com',
-    phone: '+ 91 7406673930',
-    address: '',
-    linkedin: 'https://www.linkedin.com/in/kamal-patel-61a8201a0/',
-    website: '',
+    fullName: 'John Smith',
+    email: 'john.smith@email.com',
+    phone: '+1 (555) 123-4567',
+    address: 'New York, NY, USA',
+    linkedin: 'https://www.linkedin.com/in/johnsmith',
+    website: 'https://johnsmith.dev',
   },
-  summary: 'Software Engineer with experience 2 year in the Telecom industry, skilled in Python, PACE automation, and DWDM, OTN technologies. Proficient in data analysis using Tableau, MongoDB, and SQL to deliver actionable insights. Experienced in building automation frameworks and ensuring optimized network solutions through effective testing.',
+  summary: 'Experienced Software Engineer with 3+ years in full-stack development, specializing in React, Node.js, and cloud technologies. Passionate about creating scalable web applications and delivering exceptional user experiences. Proven track record of leading development teams and implementing best practices.',
   experience: [
     {
       id: '1',
-      company: 'Company 1: Infinera',
-      position: 'Software QA Engineer I',
-      startDate: 'November 2024',
+      company: 'TechCorp Solutions',
+      position: 'Senior Software Engineer',
+      startDate: 'January 2023',
       endDate: 'Present',
       current: true,
       description: [
-        'Automated testing workflows using Python (Pytest), maintained and scaled test cases, and executed regression testing',
-        'Worked on PACE automation, JIRA scripting, and developed robust automation frameworks for efficient testing',
-        'Gained expertise in SQL, Spring Boot, MVC, Django, debugging and optical technologies like OTN, OTDR, and DWDM, while analyzing performance monitoring (PMIs)',
-        'Automated the integration and execution of Python-based test suites within Docker containers, Kubernetes and Helm ensuring consistent environments for test automation and script execution across teams'
+        'Led development of scalable web applications using React, Node.js, and AWS, serving 100k+ users',
+        'Implemented CI/CD pipelines reducing deployment time by 60% and improving code quality',
+        'Mentored junior developers and conducted code reviews ensuring best practices and knowledge sharing',
+        'Collaborated with product managers and designers to deliver user-centric features on time'
       ]
     },
     {
       id: '2',
-      company: 'Company 2: Tejas Network',
-      position: 'R&D PV-PE Engineer',
-      startDate: 'August 2023',
-      endDate: 'October 2024',
+      company: 'Digital Innovations Inc',
+      position: 'Full Stack Developer',
+      startDate: 'June 2021',
+      endDate: 'December 2022',
       current: false,
       description: [
-        'Developed a web-based Tester Reservation platform using Python Flask, Django, HTML, CSS and SQL, optimizing the allocation of testers and device requirements for DWDM and WSON setups. This solution enhanced resource management and improved overall efficiency, ensuring timely project completion',
-        'Worked on DWDM/OTN multiple-division multiplexing and WSON (Wavelength switched optical network) for an environment of Network Planning tool software and protection cases for traffic flow through the network',
-        'Developed selenium python framework and Robot Framework for testing testcases and regression testing for ROADM, DWDM and multi-purpose network for Laser',
-        'Developed an RESTful API to map logs for testcase and Integrated with Planning tool',
-        'Worked on multiple systems for JIRA and Jenkins for setting the server for web based planning tool',
-        'Experience with tracking system JIRA, version control system Git, CI/CD Jenkins, UI/UX concerns',
-        'Undertook the development of an Automation Framework from Scratch which involved using several Object Oriented Programming concepts in Python. Experienced in Python and familiar with various libraries'
+        'Developed and maintained multiple client projects using React, Vue.js, and Express.js',
+        'Built RESTful APIs and integrated third-party services improving application functionality',
+        'Optimized database queries and implemented caching strategies reducing load times by 40%',
+        'Participated in agile development processes and sprint planning sessions'
       ]
     },
     {
       id: '3',
-      company: 'Tejas Network',
-      position: 'R&D PV-PE Intern Trainee',
-      startDate: 'March 2023',
-      endDate: 'July 2023',
+      company: 'StartupXYZ',
+      position: 'Junior Developer',
+      startDate: 'August 2020',
+      endDate: 'May 2021',
       current: false,
       description: [
-        'Worked on Networking Technologies and Software development life cycle following the agile methodology',
-        'Hands on the testing in SQL, Spring Boot, Scrum, Setup, Optimization of the power loss',
-        'Using data analysis technique to make analysis of the network BOM/BOQ requirements',
-        'Collaborated with cross-functional teams to ensure seamless integration backend database and verification of product results and data analysis'
+        'Contributed to front-end development using HTML, CSS, JavaScript, and React',
+        'Assisted in debugging and testing applications ensuring high-quality deliverables',
+        'Learned modern development practices including version control with Git and agile methodologies',
+        'Collaborated with senior developers to implement new features and fix bugs'
       ]
     }
   ],
   education: [
     {
       id: '1',
-      institution: 'KLS Gogte Institute of Technology',
-      degree: 'Electronics and Communication Engineering',
-      field: 'Engineering',
-      startDate: '2019',
-      endDate: '2023',
-      gpa: '8.47'
+      institution: 'University of Technology',
+      degree: 'Bachelor of Science',
+      field: 'Computer Science',
+      startDate: '2016',
+      endDate: '2020',
+      gpa: '3.8'
     },
     {
       id: '2',
-      institution: 'Vijayanand Residential PU College, Pre-University',
-      degree: 'PCMB',
-      field: 'Science',
-      startDate: '2017',
-      endDate: '2019',
-      gpa: '88.5%'
-    },
-    {
-      id: '3',
-      institution: 'The Aditya Birla Public School, High School',
-      degree: 'High School',
-      field: 'General',
-      startDate: '2016',
-      endDate: '2017',
-      gpa: '9.2'
+      institution: 'Metro High School',
+      degree: 'High School Diploma',
+      field: 'General Studies',
+      startDate: '2012',
+      endDate: '2016',
+      gpa: '3.9'
     }
   ],
   skills: [
-    { id: '1', name: 'Python', level: 'Advanced' },
-    { id: '2', name: 'C/C++', level: 'Intermediate' },
-    { id: '3', name: 'Linux', level: 'Intermediate' },
-    { id: '4', name: 'Agile Methodology', level: 'Intermediate' },
-    { id: '5', name: 'Computer Networking', level: 'Advanced' },
-    { id: '6', name: 'Bitbucket, CI/CD', level: 'Intermediate' },
-    { id: '7', name: 'Bugzilla, Jira', level: 'Intermediate' },
-    { id: '8', name: 'AI & ML Tools/Methodologies', level: 'Beginner' },
-    { id: '9', name: 'SQL, MongoDB', level: 'Intermediate' },
-    { id: '10', name: 'Software Development Life Cycle(SDLC)', level: 'Advanced' },
-    { id: '11', name: 'Data Analysis tool Tableau', level: 'Intermediate' }
+    { id: '1', name: 'JavaScript', level: 'Advanced' },
+    { id: '2', name: 'React', level: 'Advanced' },
+    { id: '3', name: 'Node.js', level: 'Advanced' },
+    { id: '4', name: 'TypeScript', level: 'Intermediate' },
+    { id: '5', name: 'Python', level: 'Intermediate' },
+    { id: '6', name: 'AWS', level: 'Intermediate' },
+    { id: '7', name: 'Docker', level: 'Intermediate' },
+    { id: '8', name: 'MongoDB', level: 'Intermediate' },
+    { id: '9', name: 'PostgreSQL', level: 'Intermediate' },
+    { id: '10', name: 'Git', level: 'Advanced' },
+    { id: '11', name: 'Agile/Scrum', level: 'Advanced' }
   ],
   projects: [
     {
       id: '1',
-      name: 'Image Compression using AI Intelligence Techniques –Lossy Compression with AI & GANs',
-      description: 'Programming Languages : Python, Tensorflow, sci-kit-learn, numpy, pandas. Built a lossy image compression model using AI and GANs to reduce storage needs while preserving image quality.',
-      technologies: ['Python', 'TensorFlow', 'scikit-learn', 'numpy', 'pandas'],
-      link: ''
+      name: 'E-Commerce Platform',
+      description: 'Full-stack e-commerce application with user authentication, product catalog, shopping cart, and payment integration. Built with modern web technologies and deployed on AWS.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'AWS'],
+      link: 'https://github.com/johnsmith/ecommerce-platform'
+    },
+    {
+      id: '2',
+      name: 'Task Management App',
+      description: 'Collaborative task management application with real-time updates, team collaboration features, and project tracking capabilities.',
+      technologies: ['Vue.js', 'Express.js', 'Socket.io', 'PostgreSQL'],
+      link: 'https://github.com/johnsmith/task-manager'
     }
   ],
   certifications: [
     {
       id: '1',
-      name: 'Tableau Fundamentals, Tableau Academy',
-      issuer: 'Tableau Academy',
-      date: ''
+      name: 'AWS Certified Developer - Associate',
+      issuer: 'Amazon Web Services',
+      date: '2023'
     },
     {
       id: '2',
-      name: 'Professional DevOps, Infosys Springboard',
-      issuer: 'Infosys Springboard',
-      date: ''
+      name: 'React Developer Certification',
+      issuer: 'Meta',
+      date: '2022'
+    },
+    {
+      id: '3',
+      name: 'Professional Scrum Master I',
+      issuer: 'Scrum.org',
+      date: '2021'
     }
   ],
   achievements: [
     {
       id: '1',
-      title: 'Second 1st Prize Paper Presentation titled "Human and Animal Detection using Sensor" during Flagship Technical Festival "Avalanche" Organized by KLS Gogte Institute of Technology',
-      description: '',
-      date: ''
+      title: 'Employee of the Year Award for outstanding contribution to product development and team leadership',
+      description: 'Recognized for leading a critical project that improved system performance by 50%',
+      date: '2023'
     },
     {
       id: '2',
-      title: 'NCC - A Certificate holder and attended "International Day Of Yoga 2016"',
-      description: '',
-      date: ''
+      title: 'Best Innovation Award at TechCorp Hackathon for developing an AI-powered code review tool',
+      description: 'Created a tool that automated code quality checks and reduced review time by 30%',
+      date: '2022'
+    },
+    {
+      id: '3',
+      title: 'Dean\'s List for Academic Excellence',
+      description: 'Maintained GPA above 3.7 for four consecutive semesters',
+      date: '2018-2020'
     }
   ],
   sections: [
