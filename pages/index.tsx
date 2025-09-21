@@ -403,15 +403,15 @@ export default function Home() {
                   </div>
                   <div className="flex space-x-4">
                     <a
-                      href="https://connectkreations.com/careers"
+                      href="https://www.connectkreations.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
                     >
-                      View Jobs
+                      Visit Website
                     </a>
                     <a
-                      href="mailto:careers@connectkreations.com"
+                      href="mailto:techiekamal21@gmail.com"
                       className="border border-gray-600 hover:border-gray-500 px-4 py-2 rounded-md text-sm font-medium transition-colors"
                     >
                       Contact Us

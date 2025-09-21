@@ -185,5 +185,5 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 **Visit Connect Kreations for latest Job Opportunities and updates for internship, Full time and professional positions and more!**
 
-🌐 **Visit:** [connectkreations.com/careers](https://connectkreations.com/careers)  
-📧 **Contact:** [careers@connectkreations.com](mailto:careers@connectkreations.com)
+🌐 **Visit:** [www.connectkreations.com](https://www.connectkreations.com)  
+📧 **Contact:** [techiekamal21@gmail.com](mailto:techiekamal21@gmail.com)

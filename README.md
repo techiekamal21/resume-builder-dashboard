@@ -242,7 +242,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 ## 👥 Authors & Maintainers
 
 - **techiekamal21** - *Lead Developer* - [GitHub Profile](https://github.com/techiekamal21)
-- **Connect Kreations** - *Project Sponsor & Design* - [Website](https://connectkreations.com) | [Jobs & Opportunities](https://connectkreations.com/careers)
+- **Connect Kreations** - *Project Sponsor & Design* - [Website](https://www.connectkreations.com)
 
 ## 🙏 Acknowledgments
 
@@ -264,6 +264,11 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
 **© 2024 techiekamal21 & Connect Kreations • Production-ready • Performance optimized • Fully accessible**
 
+---
 
+## 💼 Career Opportunities
 
-*Join our team and build amazing products that impact thousands of users worldwide!*
+**Visit Connect Kreations for latest Job Opportunities and updates for internship, Full time and professional positions and more!**
+
+🌐 **Visit:** [www.connectkreations.com](https://www.connectkreations.com)  
+📧 **Contact:** [techiekamal21@gmail.com](mailto:techiekamal21@gmail.com)
