@@ -164,6 +164,7 @@ const initialResumeData: ResumeData = {
       date: '2018-2020'
     }
   ],
+  customSections: [],
   sections: [
     { id: 'personal', type: 'personal', title: 'Contact Details', visible: true, order: 1 },
     { id: 'summary', type: 'summary', title: 'Profile Summary', visible: true, order: 2 },
@@ -271,9 +272,19 @@ export default function Home() {
           <header className="bg-white shadow-sm border-b border-gray-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-16">
-                <div className="flex items-center">
+                <div className="flex items-center justify-center flex-1">
                   <FileText className="w-8 h-8 text-blue-600 mr-3" />
-                  <h1 className="text-2xl font-bold text-gray-900">Resume Builder</h1>
+                  <h1 className="text-2xl font-bold text-gray-900">
+                    <a 
+                      href="https://www.connectkreations.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-600 transition-colors"
+                    >
+                      Connect Kreations
+                    </a>
+                    {' '}Resume Builder
+                  </h1>
                 </div>
                 
                 <div className="flex items-center space-x-4">
@@ -389,7 +400,16 @@ export default function Home() {
               <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
                 {/* Left - Copyright */}
                 <div className="text-sm text-gray-300">
-                  © 2024 techiekamal21 & Connect Kreations • Built with ❤️ for job seekers
+                  © 2025 techiekamal21 & 
+                  <a 
+                    href="https://www.connectkreations.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-300 transition-colors ml-1"
+                  >
+                    Connect Kreations
+                  </a>
+                  {' '}• Built with ❤️ for job seekers
                 </div>
 
                 {/* Middle - Connect Kreations Message */}

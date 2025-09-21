@@ -10,7 +10,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ResumeData, Experience, Education, Skill, Project, Certification, Achievement, FontFamily } from '../types/resume';
+import { ResumeData, Experience, Education, Skill, Project, Certification, Achievement, CustomSection, FontFamily } from '../types/resume';
 import { Plus, Trash2, GripVertical, Eye, EyeOff } from 'lucide-react';
 
 interface EditPanelProps {
@@ -181,6 +181,30 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
     });
   };
 
+  const addCustomSection = () => {
+    const newCustomSection: CustomSection = {
+      id: Date.now().toString(),
+      title: '',
+      content: '',
+    };
+    updateResumeData({
+      customSections: [...(resumeData.customSections || []), newCustomSection],
+    });
+  };
+
+  const updateCustomSection = (id: string, field: keyof CustomSection, value: any) => {
+    const updated = (resumeData.customSections || []).map(section =>
+      section.id === id ? { ...section, [field]: value } : section
+    );
+    updateResumeData({ customSections: updated });
+  };
+
+  const deleteCustomSection = (id: string) => {
+    updateResumeData({
+      customSections: (resumeData.customSections || []).filter(section => section.id !== id),
+    });
+  };
+
   const toggleSectionVisibility = (sectionId: string) => {
     const updated = resumeData.sections.map(section =>
       section.id === sectionId ? { ...section, visible: !section.visible } : section
@@ -197,6 +221,7 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
     { id: 'projects', label: 'Projects' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'achievements', label: 'Achievements' },
+    { id: 'custom', label: 'Custom Sections' },
     { id: 'settings', label: 'Settings' },
   ];
 

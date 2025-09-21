@@ -55,6 +55,12 @@ export interface Achievement {
   date?: string;
 }
 
+export interface CustomSection {
+  id: string;
+  title: string;
+  content: string;
+}
+
 export interface ResumeSection {
   id: string;
   type: 'personal' | 'summary' | 'experience' | 'education' | 'skills' | 'projects' | 'certifications' | 'achievements' | 'custom';
@@ -72,6 +78,7 @@ export interface ResumeData {
   projects: Project[];
   certifications: Certification[];
   achievements: Achievement[];
+  customSections: CustomSection[];
   sections: ResumeSection[];
   fontFamily: string;
   fontSize: number;
