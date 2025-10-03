@@ -331,7 +331,7 @@ export default function Home() {
                   >
                     📋 What's New
                   </Link>
-                  
+
                   <button
                     onClick={() => setIsPreviewMode(!isPreviewMode)}
                     className={`flex items-center px-4 py-2 rounded-md transition-colors ${isPreviewMode
