@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -191,38 +191,74 @@ export default function Home() {
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [exportError, setExportError] = useState<string | null>(null);
+  const [showAutoSaveNotification, setShowAutoSaveNotification] = useState(false);
+  const [showExportWarning, setShowExportWarning] = useState(false);
 
   const updateResumeData = (updates: Partial<ResumeData>) => {
     setResumeData(prev => ({ ...prev, ...updates }));
+    
+    // Show auto-save notification temporarily
+    setShowAutoSaveNotification(true);
+    setTimeout(() => {
+      setShowAutoSaveNotification(false);
+    }, 3000); // Hide after 3 seconds
   };
 
   const handleExportPDF = async () => {
-    setIsExporting(true);
-    setExportError(null);
-    try {
-      await exportToPDF('resume-preview', `${resumeData.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.pdf`);
-      trackExport('pdf');
-    } catch (error) {
-      console.error('PDF export failed:', error);
-      setExportError(`PDF export failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    } finally {
-      setIsExporting(false);
-    }
+    // Show export warning first
+    setShowExportWarning(true);
+    
+    setTimeout(async () => {
+      setShowExportWarning(false);
+      setIsExporting(true);
+      setExportError(null);
+      try {
+        await exportToPDF('resume-preview', `${resumeData.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.pdf`);
+        trackExport('pdf');
+      } catch (error) {
+        console.error('PDF export failed:', error);
+        setExportError(`PDF export failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      } finally {
+        setIsExporting(false);
+      }
+    }, 2000); // Show warning for 2 seconds
   };
 
   const handleExportWord = async () => {
-    setIsExporting(true);
-    setExportError(null);
-    try {
-      await exportToWord(resumeData, `${resumeData.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.docx`);
-      trackExport('word');
-    } catch (error) {
-      console.error('Word export failed:', error);
-      setExportError(`Word export failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    } finally {
-      setIsExporting(false);
-    }
+    // Show export warning first
+    setShowExportWarning(true);
+    
+    setTimeout(async () => {
+      setShowExportWarning(false);
+      setIsExporting(true);
+      setExportError(null);
+      try {
+        await exportToWord(resumeData, `${resumeData.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.docx`);
+        trackExport('word');
+      } catch (error) {
+        console.error('Word export failed:', error);
+        setExportError(`Word export failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      } finally {
+        setIsExporting(false);
+      }
+    }, 2000); // Show warning for 2 seconds
   };
+
+  // Add beforeunload warning
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      const message = 'Your resume data is stored in temporary memory. Make sure to export your resume before leaving to avoid data loss.';
+      e.preventDefault();
+      e.returnValue = message;
+      return message;
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   // Show loading state
   if (isLoading) {
@@ -386,15 +422,30 @@ export default function Home() {
             </div>
           )}
 
-          {/* Auto-save indicator */}
-          {!storageError && !isLoading && (
-            <div className="fixed bottom-4 right-4 bg-green-100 text-green-800 px-4 py-3 rounded-lg text-sm shadow-lg max-w-xs">
+          {/* Auto-save notification (temporary popup) */}
+          {showAutoSaveNotification && !storageError && !isLoading && (
+            <div className="fixed bottom-4 right-4 bg-green-100 text-green-800 px-4 py-3 rounded-lg text-sm shadow-lg max-w-xs animate-fade-in">
               <div className="flex items-start">
                 <span className="text-green-600 mr-2">✓</span>
                 <div>
                   <div className="font-medium">Auto-saved to browser</div>
                   <div className="text-xs text-green-700 mt-1">
                     Data stored in temporary memory. Export your resume to avoid data loss if browser cache is cleared.
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Export warning notification */}
+          {showExportWarning && (
+            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-100 text-blue-800 px-6 py-4 rounded-lg shadow-xl max-w-md z-50">
+              <div className="flex items-start">
+                <span className="text-blue-600 mr-3 text-lg">💾</span>
+                <div>
+                  <div className="font-medium mb-1">Exporting Resume...</div>
+                  <div className="text-sm text-blue-700">
+                    Remember: Your data is stored locally. Export regularly to prevent data loss.
                   </div>
                 </div>
               </div>
