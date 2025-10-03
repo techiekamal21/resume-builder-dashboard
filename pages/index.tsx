@@ -196,7 +196,7 @@ export default function Home() {
 
   const updateResumeData = (updates: Partial<ResumeData>) => {
     setResumeData(prev => ({ ...prev, ...updates }));
-    
+
     // Show auto-save notification temporarily
     setShowAutoSaveNotification(true);
     setTimeout(() => {
@@ -207,7 +207,7 @@ export default function Home() {
   const handleExportPDF = async () => {
     // Show export warning first
     setShowExportWarning(true);
-    
+
     setTimeout(async () => {
       setShowExportWarning(false);
       setIsExporting(true);
@@ -227,7 +227,7 @@ export default function Home() {
   const handleExportWord = async () => {
     // Show export warning first
     setShowExportWarning(true);
-    
+
     setTimeout(async () => {
       setShowExportWarning(false);
       setIsExporting(true);
@@ -254,7 +254,7 @@ export default function Home() {
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
-    
+
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
