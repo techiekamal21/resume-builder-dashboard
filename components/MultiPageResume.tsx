@@ -22,32 +22,13 @@ const MultiPageResume: React.FC<MultiPageResumeProps> = ({ resumeData, children 
   const [pages, setPages] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
-    if (containerRef.current) {
-      // Create a temporary container to measure content
-      const tempContainer = document.createElement('div');
-      tempContainer.style.position = 'absolute';
-      tempContainer.style.left = '-9999px';
-      tempContainer.style.width = '210mm';
-      tempContainer.style.visibility = 'hidden';
-      tempContainer.innerHTML = containerRef.current.innerHTML;
-      document.body.appendChild(tempContainer);
-
-      // Calculate if content fits in one page
-      const A4_HEIGHT_PX = 1123; // Approximate A4 height in pixels at 96 DPI
-      const MARGIN_HEIGHT_PX = 113; // Approximate margin height in pixels
-      const CONTENT_HEIGHT = A4_HEIGHT_PX - (MARGIN_HEIGHT_PX * 2);
-
-      const contentHeight = tempContainer.scrollHeight;
-      document.body.removeChild(tempContainer);
-
-      if (contentHeight > CONTENT_HEIGHT) {
-        // Content needs multiple pages - split sections
-        splitIntoPages();
-      } else {
-        // Content fits in one page
-        setPages([children]);
-      }
-    }
+    // For now, we'll use a simpler approach - always use single page
+    // and let the export handle page breaks naturally
+    setPages([
+      <div key="page-0" className="resume-page">
+        {children}
+      </div>
+    ]);
   }, [resumeData, children]);
 
   const splitIntoPages = () => {

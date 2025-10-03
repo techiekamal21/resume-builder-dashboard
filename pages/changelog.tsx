@@ -45,6 +45,7 @@ const ChangelogPage: React.FC = () => {
 
         {/* Main Content */}
         <main className="max-w-4xl mx-auto px-2 sm:px-4 lg:px-8 py-4 sm:py-6 lg:py-8">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8">
           {/* Introduction */}
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl shadow-sm p-6 mb-8 border border-blue-100">
             <div className="flex items-center mb-4">
@@ -62,7 +63,7 @@ const ChangelogPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white rounded-lg p-4 border border-blue-200">
               <div className="flex items-center text-sm text-gray-600 mb-2 sm:mb-0">
                 <Calendar className="w-4 h-4 mr-2 text-blue-600" />
-                <span>Last updated: January 3, 2025</span>
+                <span>Last updated: October 3, 2025</span>
               </div>
               <div className="flex items-center">
                 <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
@@ -73,20 +74,20 @@ const ChangelogPage: React.FC = () => {
           </div>
 
           {/* Version 1.3.0 */}
-          <div className="bg-white rounded-xl shadow-lg p-6 mb-6 border-l-4 border-green-500">
-            <div className="flex items-center justify-between mb-4">
+          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-6 border-l-4 border-green-500">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
               <div className="flex items-center">
                 <div className="bg-green-100 rounded-full p-2 mr-3">
-                  <Zap className="w-5 h-5 text-green-600" />
+                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Version 1.3.0</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">Version 1.3.0</h3>
               </div>
               <div className="flex items-center space-x-2">
-                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-green-100 text-green-800 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                   Latest
                 </span>
-                <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
-                  Jan 3, 2025
+                <span className="bg-gray-100 text-gray-600 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
+                  Oct 3, 2025
                 </span>
               </div>
             </div>
@@ -135,16 +136,16 @@ const ChangelogPage: React.FC = () => {
           </div>
 
           {/* Version 1.2.0 */}
-          <div className="bg-white rounded-xl shadow-md p-6 mb-6 border-l-4 border-blue-500">
-            <div className="flex items-center justify-between mb-4">
+          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 mb-4 sm:mb-6 border-l-4 border-blue-500">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
               <div className="flex items-center">
                 <div className="bg-blue-100 rounded-full p-2 mr-3">
-                  <Target className="w-5 h-5 text-blue-600" />
+                  <Target className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Version 1.2.0</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">Version 1.2.0</h3>
               </div>
-              <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
-                Jan 3, 2025
+              <span className="bg-gray-100 text-gray-600 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
+                Oct 3, 2025
               </span>
             </div>
             
@@ -188,7 +189,7 @@ const ChangelogPage: React.FC = () => {
                 <h3 className="text-xl font-bold text-gray-900">Version 1.1.0</h3>
               </div>
               <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
-                Jan 3, 2025
+                Oct 3, 2025
               </span>
             </div>
             
@@ -223,7 +224,7 @@ const ChangelogPage: React.FC = () => {
                   Initial Release
                 </span>
                 <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
-                  Jan 3, 2025
+                  Oct 3, 2025
                 </span>
               </div>
             </div>
@@ -300,6 +301,7 @@ const ChangelogPage: React.FC = () => {
                 </a>
               </div>
             </div>
+          </div>
           </div>
         </main>
 

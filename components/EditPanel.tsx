@@ -908,7 +908,7 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
           <div className="bg-white rounded-md p-2 border border-gray-200">
             <div className="flex items-center justify-between mb-1">
               <span className="text-xs font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded">v1.2.0</span>
-              <span className="text-xs text-gray-500">Jan 3</span>
+              <span className="text-xs text-gray-500">Oct 3</span>
             </div>
             <p className="text-xs text-gray-700 mb-1">🔔 Smart Notification System</p>
             <p className="text-xs text-gray-600">• Temporary popup notifications</p>

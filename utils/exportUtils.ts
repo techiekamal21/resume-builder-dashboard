@@ -9,47 +9,75 @@ export const exportToPDF = async (elementId: string, filename: string = 'resume.
   if (!element) return;
 
   try {
-    const canvas = await html2canvas(element, {
-      scale: 2,
-      useCORS: true,
-      allowTaint: true,
-      backgroundColor: '#ffffff',
-      width: element.scrollWidth,
-      height: element.scrollHeight,
-      windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight
-    });
+    // Find all resume pages
+    const resumePages = element.querySelectorAll('.resume-page');
+    
+    if (resumePages.length === 0) {
+      // Fallback to single page export
+      return exportSinglePageToPDF(element, filename);
+    }
 
-    const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF('p', 'mm', 'a4');
-    
-    // A4 dimensions in mm
-    const pdfWidth = 210;
-    const pdfHeight = 297;
-    const margin = 0;
-    
-    const imgWidth = pdfWidth - (margin * 2);
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-    
-    let heightLeft = imgHeight;
-    let position = margin;
+    let isFirstPage = true;
 
-    // Add first page
-    pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-    heightLeft -= (pdfHeight - margin * 2);
+    for (let i = 0; i < resumePages.length; i++) {
+      const page = resumePages[i];
+      const canvas = await html2canvas(page as HTMLElement, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#ffffff',
+        width: 794, // A4 width in pixels at 96 DPI
+        height: 1123, // A4 height in pixels at 96 DPI
+      });
 
-    // Add additional pages if needed
-    while (heightLeft >= 0) {
-      position = heightLeft - imgHeight + margin;
-      pdf.addPage();
-      pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-      heightLeft -= (pdfHeight - margin * 2);
+      const imgData = canvas.toDataURL('image/png');
+      
+      if (!isFirstPage) {
+        pdf.addPage();
+      }
+      
+      // Add image to fit exactly on A4 page
+      pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
+      isFirstPage = false;
     }
 
     pdf.save(filename);
   } catch (error) {
     console.error('Error exporting to PDF:', error);
   }
+};
+
+const exportSinglePageToPDF = async (element: HTMLElement, filename: string) => {
+  const canvas = await html2canvas(element, {
+    scale: 2,
+    useCORS: true,
+    allowTaint: true,
+    backgroundColor: '#ffffff'
+  });
+
+  const imgData = canvas.toDataURL('image/png');
+  const pdf = new jsPDF('p', 'mm', 'a4');
+  
+  const pdfWidth = 210;
+  const pdfHeight = 297;
+  const imgWidth = pdfWidth;
+  const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  
+  let heightLeft = imgHeight;
+  let position = 0;
+
+  pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+  heightLeft -= pdfHeight;
+
+  while (heightLeft >= 0) {
+    position = heightLeft - imgHeight;
+    pdf.addPage();
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pdfHeight;
+  }
+
+  pdf.save(filename);
 };
 
 export const exportToWord = async (resumeData: ResumeData, filename: string = 'resume.docx') => {
