@@ -268,7 +268,12 @@ export default function Home() {
         <Head>
           <title>Resume Builder Dashboard</title>
           <meta name="description" content="Create professional resumes with ease - Build ATS-friendly resumes with real-time preview and export to PDF/Word" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+          <meta name="format-detection" content="telephone=no" />
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+          <meta name="apple-mobile-web-app-title" content="Resume Builder" />
           <meta name="keywords" content="resume builder, CV maker, professional resume, ATS resume, job application" />
           <link rel="canonical" href="https://your-domain.com" />
         </Head>
@@ -287,7 +292,12 @@ export default function Home() {
       <Head>
         <title>Resume Builder Dashboard - Create Professional Resumes</title>
         <meta name="description" content="Create professional resumes with ease - Build ATS-friendly resumes with real-time preview and export to PDF/Word" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Resume Builder" />
         <meta name="keywords" content="resume builder, CV maker, professional resume, ATS resume, job application" />
         <link rel="canonical" href="https://your-domain.com" />
 
@@ -306,12 +316,13 @@ export default function Home() {
       <DndProvider backend={HTML5Backend}>
         <div className="min-h-screen bg-gray-50">
           {/* Header */}
-          <header className="bg-white shadow-sm border-b border-gray-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16">
-                <div className="flex items-center justify-center flex-1">
-                  <FileText className="w-8 h-8 text-blue-600 mr-3" />
-                  <h1 className="text-2xl font-bold text-gray-900">
+          <header className="bg-white shadow-sm border-b border-gray-200 header-container">
+            <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+              <div className="flex flex-col lg:flex-row justify-between items-center py-2 lg:py-0 lg:h-16 space-y-2 lg:space-y-0">
+                {/* Logo and Title */}
+                <div className="flex items-center justify-center flex-1 lg:justify-start">
+                  <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 mr-2 sm:mr-3" />
+                  <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 header-title text-center lg:text-left">
                     <a
                       href="https://www.connectkreations.com"
                       target="_blank"
@@ -320,46 +331,51 @@ export default function Home() {
                     >
                       Connect Kreations
                     </a>
-                    {' '}Resume Builder
+                    <span className="hidden sm:inline"> Resume Builder</span>
+                    <span className="sm:hidden"> Resume</span>
                   </h1>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                {/* Navigation and Actions */}
+                <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-4 w-full lg:w-auto header-buttons">
                   <Link
                     href="/changelog"
-                    className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium"
+                    className="text-xs sm:text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium"
                   >
                     📋 What's New
                   </Link>
 
                   <button
                     onClick={() => setIsPreviewMode(!isPreviewMode)}
-                    className={`flex items-center px-4 py-2 rounded-md transition-colors ${isPreviewMode
+                    className={`flex items-center px-3 py-2 rounded-md transition-colors text-sm ${isPreviewMode
                       ? 'bg-gray-200 text-gray-700'
                       : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
                       }`}
                   >
-                    <Eye className="w-4 h-4 mr-2" />
-                    {isPreviewMode ? 'Edit Mode' : 'Preview Mode'}
+                    <Eye className="w-4 h-4 mr-1 sm:mr-2" />
+                    <span className="hidden sm:inline">{isPreviewMode ? 'Edit Mode' : 'Preview Mode'}</span>
+                    <span className="sm:hidden">{isPreviewMode ? 'Edit' : 'Preview'}</span>
                   </button>
 
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1 sm:space-x-2">
                     <button
                       onClick={handleExportPDF}
                       disabled={isExporting}
-                      className="flex items-center px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="flex items-center px-3 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm"
                     >
-                      <Download className="w-4 h-4 mr-2" />
-                      {isExporting ? 'Exporting...' : 'Export PDF'}
+                      <Download className="w-4 h-4 mr-1 sm:mr-2" />
+                      <span className="hidden sm:inline">{isExporting ? 'Exporting...' : 'Export PDF'}</span>
+                      <span className="sm:hidden">PDF</span>
                     </button>
 
                     <button
                       onClick={handleExportWord}
                       disabled={isExporting}
-                      className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="flex items-center px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm"
                     >
-                      <Download className="w-4 h-4 mr-2" />
-                      {isExporting ? 'Exporting...' : 'Export Word'}
+                      <Download className="w-4 h-4 mr-1 sm:mr-2" />
+                      <span className="hidden sm:inline">{isExporting ? 'Exporting...' : 'Export Word'}</span>
+                      <span className="sm:hidden">Word</span>
                     </button>
                   </div>
                 </div>
@@ -368,10 +384,10 @@ export default function Home() {
           </header>
 
           {/* Main Content */}
-          <div className="flex">
+          <div className="flex flex-col lg:flex-row main-content">
             {/* Edit Panel */}
             {!isPreviewMode && (
-              <div className="w-96 flex-shrink-0">
+              <div className="w-full lg:w-96 lg:flex-shrink-0 border-b lg:border-b-0 lg:border-r border-gray-200">
                 <EditPanel
                   resumeData={resumeData}
                   updateResumeData={updateResumeData}
@@ -381,13 +397,13 @@ export default function Home() {
 
             {/* Resume Preview */}
             <div className={`flex-1 ${isPreviewMode ? 'flex justify-center' : ''}`}>
-              <div className="p-8">
+              <div className="p-2 sm:p-4 lg:p-8">
                 <div className="max-w-4xl mx-auto">
-                  <div className="mb-6">
-                    <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                  <div className="mb-4 lg:mb-6">
+                    <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                       Resume Preview
                     </h2>
-                    <p className="text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600">
                       {isPreviewMode
                         ? 'This is how your resume will look when exported'
                         : 'Edit your information on the left to see changes here'
@@ -400,7 +416,7 @@ export default function Home() {
                   </div>
 
                   {isPreviewMode && (
-                    <div className="mt-6 text-center">
+                    <div className="mt-4 lg:mt-6 text-center">
                       <p className="text-sm text-gray-500 mb-4">
                         Ready to export? Use the buttons in the header above.
                       </p>

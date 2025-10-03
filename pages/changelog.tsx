@@ -24,26 +24,27 @@ const ChangelogPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
         <header className="bg-white shadow-sm border-b border-gray-200">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
+          <div className="max-w-4xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between py-3 sm:py-0 sm:h-16 space-y-2 sm:space-y-0">
               <div className="flex items-center">
                 <Link href="/">
-                  <a className="flex items-center text-blue-600 hover:text-blue-700 transition-colors">
-                    <ArrowLeft className="w-5 h-5 mr-2" />
-                    Back to Resume Builder
+                  <a className="flex items-center text-blue-600 hover:text-blue-700 transition-colors text-sm sm:text-base">
+                    <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+                    <span className="hidden sm:inline">Back to Resume Builder</span>
+                    <span className="sm:hidden">Back</span>
                   </a>
                 </Link>
               </div>
               <div className="flex items-center">
-                <Calendar className="w-6 h-6 text-blue-600 mr-2" />
-                <h1 className="text-xl font-bold text-gray-900">Changelog</h1>
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 mr-2" />
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900">Changelog</h1>
               </div>
             </div>
           </div>
         </header>
 
         {/* Main Content */}
-        <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="max-w-4xl mx-auto px-2 sm:px-4 lg:px-8 py-4 sm:py-6 lg:py-8">
           {/* Introduction */}
           <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
