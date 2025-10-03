@@ -180,14 +180,14 @@ const initialResumeData: ResumeData = {
 };
 
 export default function Home() {
-  const { 
-    value: resumeData, 
-    setValue: setResumeData, 
-    isLoading, 
+  const {
+    value: resumeData,
+    setValue: setResumeData,
+    isLoading,
     error: storageError,
-    clearStorage 
+    clearStorage
   } = useLocalStorage<ResumeData>('resumeData', initialResumeData);
-  
+
   const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [exportError, setExportError] = useState<string | null>(null);
@@ -253,13 +253,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="resume builder, CV maker, professional resume, ATS resume, job application" />
         <link rel="canonical" href="https://your-domain.com" />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content="Resume Builder Dashboard - Create Professional Resumes" />
         <meta property="og:description" content="Build professional, ATS-friendly resumes with real-time preview and export options" />
         <meta property="og:url" content="https://your-domain.com" />
         <meta property="og:image" content="https://your-domain.com/og-image.png" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:title" content="Resume Builder Dashboard" />
         <meta name="twitter:description" content="Create professional resumes with ease" />
@@ -275,9 +275,9 @@ export default function Home() {
                 <div className="flex items-center justify-center flex-1">
                   <FileText className="w-8 h-8 text-blue-600 mr-3" />
                   <h1 className="text-2xl font-bold text-gray-900">
-                    <a 
-                      href="https://www.connectkreations.com" 
-                      target="_blank" 
+                    <a
+                      href="https://www.connectkreations.com"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-blue-600 transition-colors"
                     >
@@ -286,20 +286,19 @@ export default function Home() {
                     {' '}Resume Builder
                   </h1>
                 </div>
-                
+
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => setIsPreviewMode(!isPreviewMode)}
-                    className={`flex items-center px-4 py-2 rounded-md transition-colors ${
-                      isPreviewMode
-                        ? 'bg-gray-200 text-gray-700'
-                        : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
-                    }`}
+                    className={`flex items-center px-4 py-2 rounded-md transition-colors ${isPreviewMode
+                      ? 'bg-gray-200 text-gray-700'
+                      : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                      }`}
                   >
                     <Eye className="w-4 h-4 mr-2" />
                     {isPreviewMode ? 'Edit Mode' : 'Preview Mode'}
                   </button>
-                  
+
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={handleExportPDF}
@@ -309,7 +308,7 @@ export default function Home() {
                       <Download className="w-4 h-4 mr-2" />
                       {isExporting ? 'Exporting...' : 'Export PDF'}
                     </button>
-                    
+
                     <button
                       onClick={handleExportWord}
                       disabled={isExporting}
@@ -345,17 +344,17 @@ export default function Home() {
                       Resume Preview
                     </h2>
                     <p className="text-gray-600">
-                      {isPreviewMode 
+                      {isPreviewMode
                         ? 'This is how your resume will look when exported'
                         : 'Edit your information on the left to see changes here'
                       }
                     </p>
                   </div>
-                  
+
                   <div className="bg-white shadow-lg rounded-lg overflow-hidden">
                     <ResumePreview resumeData={resumeData} />
                   </div>
-                  
+
                   {isPreviewMode && (
                     <div className="mt-6 text-center">
                       <p className="text-sm text-gray-500 mb-4">
@@ -389,8 +388,16 @@ export default function Home() {
 
           {/* Auto-save indicator */}
           {!storageError && !isLoading && (
-            <div className="fixed bottom-4 right-4 bg-green-100 text-green-800 px-3 py-2 rounded-md text-sm shadow-lg">
-              ✓ Auto-saved to local storage
+            <div className="fixed bottom-4 right-4 bg-green-100 text-green-800 px-4 py-3 rounded-lg text-sm shadow-lg max-w-xs">
+              <div className="flex items-start">
+                <span className="text-green-600 mr-2">✓</span>
+                <div>
+                  <div className="font-medium">Auto-saved to browser</div>
+                  <div className="text-xs text-green-700 mt-1">
+                    Data stored in temporary memory. Export your resume to avoid data loss if browser cache is cleared.
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
@@ -400,10 +407,10 @@ export default function Home() {
               <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
                 {/* Left - Copyright */}
                 <div className="text-sm text-gray-300">
-                  © 2025 techiekamal21 & 
-                  <a 
-                    href="https://www.connectkreations.com" 
-                    target="_blank" 
+                  © 2025 techiekamal21 &
+                  <a
+                    href="https://www.connectkreations.com"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-blue-300 transition-colors ml-1"
                   >
