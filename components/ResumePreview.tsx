@@ -11,6 +11,7 @@
 
 import React from 'react';
 import { ResumeData } from '../types/resume';
+import MultiPageResume from './MultiPageResume';
 
 interface ResumePreviewProps {
   resumeData: ResumeData;
@@ -251,17 +252,21 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
     }
   };
 
+  const sectionElements = visibleSections.map((section) => (
+    <div key={section.id} className="avoid-page-break">
+      {renderSection(section)}
+    </div>
+  ));
+
   return (
     <div 
       id="resume-preview" 
-      className={`resume-container ${fontClass} text-black bg-white`}
+      className={`${fontClass} text-black bg-white`}
       style={{ fontSize: `${resumeData.fontSize}px`, lineHeight: '1.4' }}
     >
-      {visibleSections.map((section) => (
-        <React.Fragment key={section.id}>
-          {renderSection(section)}
-        </React.Fragment>
-      ))}
+      <MultiPageResume resumeData={resumeData}>
+        {sectionElements}
+      </MultiPageResume>
     </div>
   );
 };

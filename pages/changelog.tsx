@@ -46,30 +46,50 @@ const ChangelogPage: React.FC = () => {
         {/* Main Content */}
         <main className="max-w-4xl mx-auto px-2 sm:px-4 lg:px-8 py-4 sm:py-6 lg:py-8">
           {/* Introduction */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Connect Kreations Resume Builder - Version History
-            </h2>
-            <p className="text-gray-600 mb-4">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl shadow-sm p-6 mb-8 border border-blue-100">
+            <div className="flex items-center mb-4">
+              <div className="bg-blue-600 rounded-full p-2 mr-3">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900">
+                Connect Kreations Resume Builder
+              </h2>
+            </div>
+            <p className="text-gray-700 mb-4 text-lg">
               Track all the latest features, improvements, and bug fixes in our resume builder. 
               We're constantly working to make your resume building experience better!
             </p>
-            <div className="flex items-center text-sm text-gray-500">
-              <span>Last updated: January 3, 2025</span>
-              <span className="mx-2">•</span>
-              <span>Current version: v1.3.0</span>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white rounded-lg p-4 border border-blue-200">
+              <div className="flex items-center text-sm text-gray-600 mb-2 sm:mb-0">
+                <Calendar className="w-4 h-4 mr-2 text-blue-600" />
+                <span>Last updated: January 3, 2025</span>
+              </div>
+              <div className="flex items-center">
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  Current: v1.3.0
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Version 1.3.0 */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+          <div className="bg-white rounded-xl shadow-lg p-6 mb-6 border-l-4 border-green-500">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">Version 1.3.0</h3>
-              <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                Latest
-              </span>
+              <div className="flex items-center">
+                <div className="bg-green-100 rounded-full p-2 mr-3">
+                  <Zap className="w-5 h-5 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Version 1.3.0</h3>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  Latest
+                </span>
+                <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
+                  Jan 3, 2025
+                </span>
+              </div>
             </div>
-            <p className="text-gray-600 mb-4">Released on January 3, 2025</p>
             
             <div className="space-y-4">
               <div>
@@ -115,10 +135,17 @@ const ChangelogPage: React.FC = () => {
           </div>
 
           {/* Version 1.2.0 */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+          <div className="bg-white rounded-xl shadow-md p-6 mb-6 border-l-4 border-blue-500">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">Version 1.2.0</h3>
-              <span className="text-gray-500 text-sm">January 3, 2025</span>
+              <div className="flex items-center">
+                <div className="bg-blue-100 rounded-full p-2 mr-3">
+                  <Target className="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Version 1.2.0</h3>
+              </div>
+              <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
+                Jan 3, 2025
+              </span>
             </div>
             
             <div className="space-y-4">
@@ -152,10 +179,17 @@ const ChangelogPage: React.FC = () => {
           </div>
 
           {/* Version 1.1.0 */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+          <div className="bg-white rounded-xl shadow-md p-6 mb-6 border-l-4 border-purple-500">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">Version 1.1.0</h3>
-              <span className="text-gray-500 text-sm">January 3, 2025</span>
+              <div className="flex items-center">
+                <div className="bg-purple-100 rounded-full p-2 mr-3">
+                  <Plus className="w-5 h-5 text-purple-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Version 1.1.0</h3>
+              </div>
+              <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
+                Jan 3, 2025
+              </span>
             </div>
             
             <div className="space-y-4">
@@ -176,14 +210,23 @@ const ChangelogPage: React.FC = () => {
           </div>
 
           {/* Version 1.0.0 */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+          <div className="bg-white rounded-xl shadow-md p-6 mb-6 border-l-4 border-yellow-500">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">Version 1.0.0</h3>
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                Initial Release
-              </span>
+              <div className="flex items-center">
+                <div className="bg-yellow-100 rounded-full p-2 mr-3">
+                  <Globe className="w-5 h-5 text-yellow-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Version 1.0.0</h3>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+                  Initial Release
+                </span>
+                <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
+                  Jan 3, 2025
+                </span>
+              </div>
             </div>
-            <p className="text-gray-600 mb-4">Released on January 3, 2025</p>
             
             <div className="space-y-4">
               <div>

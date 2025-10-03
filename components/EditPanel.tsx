@@ -10,6 +10,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { ResumeData, Experience, Education, Skill, Project, Certification, Achievement, CustomSection, FontFamily } from '../types/resume';
 import { Plus, Trash2, GripVertical, Eye, EyeOff } from 'lucide-react';
 import DraggableSectionList from './DraggableSectionList';
@@ -880,6 +881,54 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
             </div>
           </div>
         )}
+      </div>
+
+      {/* Changelog Section at Bottom */}
+      <div className="border-t border-gray-200 bg-gray-50 p-3 sm:p-4">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-sm font-medium text-gray-700">Latest Updates</h3>
+          <Link href="/changelog">
+            <a className="text-xs text-blue-600 hover:text-blue-700 transition-colors">
+              View All →
+            </a>
+          </Link>
+        </div>
+        
+        <div className="space-y-2">
+          <div className="bg-white rounded-md p-2 border border-gray-200">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-xs font-medium text-green-700 bg-green-100 px-2 py-1 rounded">v1.3.0</span>
+              <span className="text-xs text-gray-500">Latest</span>
+            </div>
+            <p className="text-xs text-gray-700 mb-1">🎯 Drag-and-Drop Section Reordering</p>
+            <p className="text-xs text-gray-600">• Fixed custom sections functionality</p>
+            <p className="text-xs text-gray-600">• Added visual drag feedback</p>
+          </div>
+          
+          <div className="bg-white rounded-md p-2 border border-gray-200">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-xs font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded">v1.2.0</span>
+              <span className="text-xs text-gray-500">Jan 3</span>
+            </div>
+            <p className="text-xs text-gray-700 mb-1">🔔 Smart Notification System</p>
+            <p className="text-xs text-gray-600">• Temporary popup notifications</p>
+            <p className="text-xs text-gray-600">• Browser close protection</p>
+          </div>
+        </div>
+        
+        <div className="mt-3 pt-2 border-t border-gray-200 text-center">
+          <p className="text-xs text-gray-500">
+            © 2025 techiekamal21 & 
+            <a 
+              href="https://www.connectkreations.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-700 ml-1"
+            >
+              Connect Kreations
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

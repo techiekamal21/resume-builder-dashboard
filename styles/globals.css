@@ -42,12 +42,36 @@ a {
 .resume-container {
   background: white;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  min-height: 297mm; /* A4 height */
   width: 210mm; /* A4 width */
   margin: 0 auto;
-  padding: 12mm 15mm; /* Optimized margins for more content space */
+  padding: 0;
   max-width: 100%;
   box-sizing: border-box;
+  position: relative;
+}
+
+.resume-page {
+  min-height: 297mm; /* A4 height */
+  max-height: 297mm; /* Enforce A4 height */
+  padding: 12mm 15mm; /* Optimized margins for content */
+  box-sizing: border-box;
+  page-break-after: always;
+  overflow: hidden;
+  position: relative;
+}
+
+.resume-page:last-child {
+  page-break-after: auto;
+}
+
+.page-break {
+  page-break-before: always;
+  break-before: page;
+}
+
+.avoid-page-break {
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 /* Responsive design for all device types */
@@ -231,6 +255,46 @@ a:focus-visible {
   }
 }
 
+/* Page break indicators */
+.page-break-indicator {
+  border-top: 2px dashed #d1d5db;
+  border-bottom: 2px dashed #d1d5db;
+  margin: 10px 0;
+}
+
+/* Hide page indicators in print */
+@media print {
+  .page-break-indicator,
+  .no-print {
+    display: none !important;
+  }
+  
+  .resume-page {
+    page-break-after: always;
+  }
+  
+  .resume-page:last-child {
+    page-break-after: auto;
+  }
+}
+
+/* Responsive adjustments for resume pages */
+@media (max-width: 480px) {
+  .resume-page {
+    min-height: auto;
+    max-height: none;
+    padding: 15px 10px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .resume-page {
+    min-height: auto;
+    max-height: none;
+    padding: 18px 12px;
+  }
+}
+
 .resume-section {
   margin-bottom: 1.5rem;
 }
@@ -250,10 +314,15 @@ a:focus-visible {
   .resume-container {
     box-shadow: none;
     margin: 0;
-    padding: 12mm 15mm;
-    min-height: 297mm;
+    padding: 0;
     width: 210mm;
     max-width: none;
+  }
+  
+  .resume-page {
+    min-height: 297mm;
+    max-height: 297mm;
+    padding: 12mm 15mm;
   }
   
   .no-print {
