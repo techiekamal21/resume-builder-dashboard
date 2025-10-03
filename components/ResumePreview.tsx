@@ -30,14 +30,14 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         return (
           <div className="resume-section">
             {/* Header with name centered and underlined */}
-            <div className="text-center mb-4">
-              <h1 className="text-2xl font-bold tracking-wider border-b-2 border-black pb-1 inline-block">
+            <div className="text-center mb-3">
+              <h1 className="text-xl font-bold tracking-wider border-b-2 border-black pb-1 inline-block">
                 {resumeData.personalInfo.fullName.toUpperCase()}
               </h1>
             </div>
             
             {/* Contact Details Section */}
-            <div className="mb-6">
+            <div className="mb-4">
               <h2 className="text-sm font-bold mb-2">Contact Details</h2>
               <div className="flex flex-wrap items-center text-xs space-x-4">
                 <div className="flex items-center">
@@ -65,7 +65,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         return resumeData.summary ? (
           <div className="resume-section">
             <h2 className="text-sm font-bold mb-2">Profile Summary</h2>
-            <ul className="text-xs leading-relaxed space-y-1">
+            <ul className="text-xs leading-relaxed space-y-0.5">
               {resumeData.summary.split('.').filter(s => s.trim()).map((sentence, index) => (
                 <li key={index} className="flex items-start">
                   <span className="mr-2">•</span>
@@ -80,7 +80,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         return resumeData.education.length > 0 ? (
           <div className="resume-section">
             <h2 className="text-sm font-bold mb-2">Academic Details</h2>
-            <div className="space-y-2">
+            <div className="space-y-1">
               {resumeData.education.map((edu) => (
                 <div key={edu.id} className="text-xs">
                   <div className="flex items-start">
@@ -109,20 +109,20 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         return resumeData.experience.length > 0 ? (
           <div className="resume-section">
             <h2 className="text-sm font-bold mb-2">Work Experience</h2>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {resumeData.experience.map((exp) => (
                 <div key={exp.id} className="text-xs">
                   <div className="flex justify-between items-start mb-1">
                     <div>
                       <span className="font-bold">{exp.company}</span>
-                      <span className="mx-4">Role: </span>
+                      <span className="mx-3">Role: </span>
                       <span className="font-semibold">{exp.position}</span>
                     </div>
-                    <span className="font-semibold">
+                    <span className="font-semibold text-right">
                       {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
                     </span>
                   </div>
-                  <ul className="space-y-1 ml-0">
+                  <ul className="space-y-0.5 ml-0">
                     {exp.description.map((desc, index) => (
                       <li key={index} className="flex items-start">
                         <span className="mr-2">•</span>
@@ -216,13 +216,14 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         const customSectionId = section.id.replace('custom-', '');
         const customSection = resumeData.customSections?.find(cs => cs.id === customSectionId);
         
-        return customSection ? (
+        // Always render custom section, even if empty
+        return (
           <div className="resume-section">
             <h2 className="text-sm font-bold mb-2">
-              {customSection.title ? customSection.title.toUpperCase() : 'CUSTOM SECTION'}
+              {customSection?.title ? customSection.title.toUpperCase() : section.title.toUpperCase()}
             </h2>
             <div className="text-xs leading-relaxed">
-              {customSection.content ? (
+              {customSection?.content ? (
                 customSection.content.split('\n').map((line, index) => {
                   const trimmedLine = line.trim();
                   if (!trimmedLine) return null;
@@ -241,11 +242,11 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
                   );
                 })
               ) : (
-                <div className="text-gray-500 italic">Add content to this custom section...</div>
+                <div className="text-gray-500 italic text-xs">Add content to this custom section...</div>
               )}
             </div>
           </div>
-        ) : null;
+        );
 
       default:
         return null;

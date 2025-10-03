@@ -53,7 +53,7 @@ a {
 .resume-page {
   min-height: 297mm; /* A4 height */
   max-height: 297mm; /* Enforce A4 height */
-  padding: 12mm 15mm; /* Optimized margins for content */
+  padding: 8mm 10mm; /* Reduced margins for maximum content space */
   box-sizing: border-box;
   page-break-after: always;
   overflow: hidden;
@@ -283,7 +283,7 @@ a:focus-visible {
   .resume-page {
     min-height: auto;
     max-height: none;
-    padding: 15px 10px;
+    padding: 10px 8px;
   }
 }
 
@@ -291,12 +291,12 @@ a:focus-visible {
   .resume-page {
     min-height: auto;
     max-height: none;
-    padding: 18px 12px;
+    padding: 12px 10px;
   }
 }
 
 .resume-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .resume-section:last-child {
@@ -322,7 +322,7 @@ a:focus-visible {
   .resume-page {
     min-height: 297mm;
     max-height: 297mm;
-    padding: 12mm 15mm;
+    padding: 8mm 10mm;
   }
   
   .no-print {
