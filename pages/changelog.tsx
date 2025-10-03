@@ -27,9 +27,11 @@ const ChangelogPage: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <Link href="/" className="flex items-center text-blue-600 hover:text-blue-700 transition-colors">
-                  <ArrowLeft className="w-5 h-5 mr-2" />
-                  Back to Resume Builder
+                <Link href="/">
+                  <a className="flex items-center text-blue-600 hover:text-blue-700 transition-colors">
+                    <ArrowLeft className="w-5 h-5 mr-2" />
+                    Back to Resume Builder
+                  </a>
                 </Link>
               </div>
               <div className="flex items-center">
