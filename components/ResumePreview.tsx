@@ -215,27 +215,33 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         const customSectionId = section.id.replace('custom-', '');
         const customSection = resumeData.customSections?.find(cs => cs.id === customSectionId);
         
-        return customSection && customSection.title && customSection.content ? (
+        return customSection ? (
           <div className="resume-section">
-            <h2 className="text-sm font-bold mb-2">{customSection.title.toUpperCase()}</h2>
+            <h2 className="text-sm font-bold mb-2">
+              {customSection.title ? customSection.title.toUpperCase() : 'CUSTOM SECTION'}
+            </h2>
             <div className="text-xs leading-relaxed">
-              {customSection.content.split('\n').map((line, index) => {
-                const trimmedLine = line.trim();
-                if (!trimmedLine) return null;
-                
-                return (
-                  <div key={index} className="mb-1">
-                    {trimmedLine.startsWith('•') || trimmedLine.startsWith('-') ? (
-                      <div className="flex items-start">
-                        <span className="mr-2">•</span>
-                        <span>{trimmedLine.replace(/^[•\-]\s*/, '')}</span>
-                      </div>
-                    ) : (
-                      <div>{trimmedLine}</div>
-                    )}
-                  </div>
-                );
-              })}
+              {customSection.content ? (
+                customSection.content.split('\n').map((line, index) => {
+                  const trimmedLine = line.trim();
+                  if (!trimmedLine) return null;
+                  
+                  return (
+                    <div key={index} className="mb-1">
+                      {trimmedLine.startsWith('•') || trimmedLine.startsWith('-') ? (
+                        <div className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{trimmedLine.replace(/^[•\-]\s*/, '')}</span>
+                        </div>
+                      ) : (
+                        <div>{trimmedLine}</div>
+                      )}
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="text-gray-500 italic">Add content to this custom section...</div>
+              )}
             </div>
           </div>
         ) : null;

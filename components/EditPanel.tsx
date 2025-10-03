@@ -12,6 +12,7 @@
 import React, { useState } from 'react';
 import { ResumeData, Experience, Education, Skill, Project, Certification, Achievement, CustomSection, FontFamily } from '../types/resume';
 import { Plus, Trash2, GripVertical, Eye, EyeOff } from 'lucide-react';
+import DraggableSectionList from './DraggableSectionList';
 
 interface EditPanelProps {
   resumeData: ResumeData;
@@ -247,6 +248,10 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
     updateResumeData({ sections: updated });
   };
 
+  const handleSectionReorder = (reorderedSections: any[]) => {
+    updateResumeData({ sections: reorderedSections });
+  };
+
   const tabs = [
     { id: 'personal', label: 'Personal Info' },
     { id: 'summary', label: 'Summary' },
@@ -257,6 +262,7 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
     { id: 'certifications', label: 'Certifications' },
     { id: 'achievements', label: 'Achievements' },
     { id: 'custom', label: 'Custom Sections' },
+    { id: 'sections', label: 'Section Order' },
     { id: 'settings', label: 'Settings' },
   ];
 
@@ -804,6 +810,16 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
                 <p className="text-sm">Add sections like Languages, Hobbies, Awards, or any other information</p>
               </div>
             )}
+          </div>
+        )}
+
+        {activeTab === 'sections' && (
+          <div className="space-y-4">
+            <DraggableSectionList
+              sections={resumeData.sections}
+              onReorder={handleSectionReorder}
+              onToggleVisibility={toggleSectionVisibility}
+            />
           </div>
         )}
 
