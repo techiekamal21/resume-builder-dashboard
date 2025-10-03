@@ -182,13 +182,29 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
   };
 
   const addCustomSection = () => {
+    const sectionId = Date.now().toString();
     const newCustomSection: CustomSection = {
-      id: Date.now().toString(),
+      id: sectionId,
       title: '',
       content: '',
     };
+    
+    // Add to custom sections array
+    const updatedCustomSections = [...(resumeData.customSections || []), newCustomSection];
+    
+    // Add to sections array for visibility control
+    const newSection = {
+      id: `custom-${sectionId}`,
+      type: 'custom' as const,
+      title: 'Custom Section',
+      visible: true,
+      order: resumeData.sections.length + 1,
+    };
+    const updatedSections = [...resumeData.sections, newSection];
+    
     updateResumeData({
-      customSections: [...(resumeData.customSections || []), newCustomSection],
+      customSections: updatedCustomSections,
+      sections: updatedSections,
     });
   };
 
@@ -196,12 +212,31 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
     const updated = (resumeData.customSections || []).map(section =>
       section.id === id ? { ...section, [field]: value } : section
     );
-    updateResumeData({ customSections: updated });
+    
+    // If title is being updated, also update the section title
+    if (field === 'title') {
+      const updatedSections = resumeData.sections.map(section =>
+        section.id === `custom-${id}` ? { ...section, title: value || 'Custom Section' } : section
+      );
+      updateResumeData({ 
+        customSections: updated,
+        sections: updatedSections 
+      });
+    } else {
+      updateResumeData({ customSections: updated });
+    }
   };
 
   const deleteCustomSection = (id: string) => {
+    // Remove from custom sections array
+    const updatedCustomSections = (resumeData.customSections || []).filter(section => section.id !== id);
+    
+    // Remove from sections array
+    const updatedSections = resumeData.sections.filter(section => section.id !== `custom-${id}`);
+    
     updateResumeData({
-      customSections: (resumeData.customSections || []).filter(section => section.id !== id),
+      customSections: updatedCustomSections,
+      sections: updatedSections,
     });
   };
 

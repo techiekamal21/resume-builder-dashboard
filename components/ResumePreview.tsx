@@ -211,27 +211,32 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         ) : null;
 
       case 'custom':
-        return resumeData.customSections && resumeData.customSections.length > 0 ? (
+        // Find the custom section that matches this section ID
+        const customSectionId = section.id.replace('custom-', '');
+        const customSection = resumeData.customSections?.find(cs => cs.id === customSectionId);
+        
+        return customSection && customSection.title && customSection.content ? (
           <div className="resume-section">
-            {resumeData.customSections.map((customSection) => (
-              <div key={customSection.id} className="mb-4 last:mb-0">
-                <h2 className="text-sm font-bold mb-2">{customSection.title}</h2>
-                <div className="text-xs leading-relaxed">
-                  {customSection.content.split('\n').map((line, index) => (
-                    <div key={index} className="mb-1">
-                      {line.trim().startsWith('•') || line.trim().startsWith('-') ? (
-                        <div className="flex items-start">
-                          <span className="mr-2">•</span>
-                          <span>{line.replace(/^[•\-]\s*/, '')}</span>
-                        </div>
-                      ) : (
-                        <div>{line}</div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+            <h2 className="text-sm font-bold mb-2">{customSection.title.toUpperCase()}</h2>
+            <div className="text-xs leading-relaxed">
+              {customSection.content.split('\n').map((line, index) => {
+                const trimmedLine = line.trim();
+                if (!trimmedLine) return null;
+                
+                return (
+                  <div key={index} className="mb-1">
+                    {trimmedLine.startsWith('•') || trimmedLine.startsWith('-') ? (
+                      <div className="flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>{trimmedLine.replace(/^[•\-]\s*/, '')}</span>
+                      </div>
+                    ) : (
+                      <div>{trimmedLine}</div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         ) : null;
 

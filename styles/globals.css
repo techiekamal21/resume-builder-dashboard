@@ -45,9 +45,19 @@ a {
   min-height: 297mm; /* A4 height */
   width: 210mm; /* A4 width */
   margin: 0 auto;
-  padding: 15mm 20mm; /* A4 standard margins */
+  padding: 12mm 15mm; /* Optimized margins for more content space */
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .resume-container {
+    width: 100%;
+    min-height: auto;
+    padding: 20px 15px;
+    margin: 0;
+  }
 }
 
 .resume-section {
@@ -69,7 +79,7 @@ a {
   .resume-container {
     box-shadow: none;
     margin: 0;
-    padding: 15mm 20mm;
+    padding: 12mm 15mm;
     min-height: 297mm;
     width: 210mm;
     max-width: none;
