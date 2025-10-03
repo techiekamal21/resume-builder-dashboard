@@ -13,26 +13,37 @@ export const exportToPDF = async (elementId: string, filename: string = 'resume.
       scale: 2,
       useCORS: true,
       allowTaint: true,
-      backgroundColor: '#ffffff'
+      backgroundColor: '#ffffff',
+      width: element.scrollWidth,
+      height: element.scrollHeight,
+      windowWidth: element.scrollWidth,
+      windowHeight: element.scrollHeight
     });
 
     const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF('p', 'mm', 'a4');
     
-    const imgWidth = 210;
-    const pageHeight = 295;
+    // A4 dimensions in mm
+    const pdfWidth = 210;
+    const pdfHeight = 297;
+    const margin = 0;
+    
+    const imgWidth = pdfWidth - (margin * 2);
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    
     let heightLeft = imgHeight;
-    let position = 0;
+    let position = margin;
 
-    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-    heightLeft -= pageHeight;
+    // Add first page
+    pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+    heightLeft -= (pdfHeight - margin * 2);
 
+    // Add additional pages if needed
     while (heightLeft >= 0) {
-      position = heightLeft - imgHeight;
+      position = heightLeft - imgHeight + margin;
       pdf.addPage();
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
+      pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+      heightLeft -= (pdfHeight - margin * 2);
     }
 
     pdf.save(filename);

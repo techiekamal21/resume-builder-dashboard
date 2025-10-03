@@ -210,6 +210,31 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
           </div>
         ) : null;
 
+      case 'custom':
+        return resumeData.customSections && resumeData.customSections.length > 0 ? (
+          <div className="resume-section">
+            {resumeData.customSections.map((customSection) => (
+              <div key={customSection.id} className="mb-4 last:mb-0">
+                <h2 className="text-sm font-bold mb-2">{customSection.title}</h2>
+                <div className="text-xs leading-relaxed">
+                  {customSection.content.split('\n').map((line, index) => (
+                    <div key={index} className="mb-1">
+                      {line.trim().startsWith('•') || line.trim().startsWith('-') ? (
+                        <div className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{line.replace(/^[•\-]\s*/, '')}</span>
+                        </div>
+                      ) : (
+                        <div>{line}</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null;
+
       default:
         return null;
     }

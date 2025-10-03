@@ -722,6 +722,56 @@ const EditPanel: React.FC<EditPanelProps> = ({ resumeData, updateResumeData }) =
           </div>
         )}
 
+        {activeTab === 'custom' && (
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-medium">Custom Sections</h3>
+              <button
+                onClick={addCustomSection}
+                className="flex items-center px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+              >
+                <Plus className="w-4 h-4 mr-1" />
+                Add Section
+              </button>
+            </div>
+            {(resumeData.customSections || []).map((section) => (
+              <div key={section.id} className="border border-gray-200 rounded-md p-4">
+                <div className="flex justify-between items-start mb-3">
+                  <GripVertical className="w-4 h-4 text-gray-400 mt-1" />
+                  <button
+                    onClick={() => deleteCustomSection(section.id)}
+                    className="text-red-500 hover:text-red-700"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  <input
+                    type="text"
+                    placeholder="Section Title (e.g., Languages, Hobbies, Awards)"
+                    value={section.title}
+                    onChange={(e) => updateCustomSection(section.id, 'title', e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <textarea
+                    placeholder="Section Content (use bullet points or paragraphs)"
+                    value={section.content}
+                    onChange={(e) => updateCustomSection(section.id, 'content', e.target.value)}
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+            ))}
+            {(resumeData.customSections || []).length === 0 && (
+              <div className="text-center py-8 text-gray-500">
+                <p className="mb-2">No custom sections yet</p>
+                <p className="text-sm">Add sections like Languages, Hobbies, Awards, or any other information</p>
+              </div>
+            )}
+          </div>
+        )}
+
         {activeTab === 'settings' && (
           <div className="space-y-6">
             <div>
