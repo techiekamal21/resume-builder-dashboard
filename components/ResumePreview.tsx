@@ -216,17 +216,19 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         const customSectionId = section.id.replace('custom-', '');
         const customSection = resumeData.customSections?.find(cs => cs.id === customSectionId);
         
-        // Always render custom section, even if empty
+        // Only render if custom section exists and has content
+        if (!customSection) return null;
+        
         return (
           <div className="resume-section">
             <h2 className="text-sm font-bold mb-2">
-              {customSection?.title ? customSection.title.toUpperCase() : section.title.toUpperCase()}
+              {customSection.title ? customSection.title.toUpperCase() : 'CUSTOM SECTION'}
             </h2>
             <div className="text-xs leading-relaxed">
-              {customSection?.content ? (
+              {customSection.content ? (
                 customSection.content.split('\n').map((line, index) => {
                   const trimmedLine = line.trim();
-                  if (!trimmedLine) return null;
+                  if (!trimmedLine) return <div key={index} className="mb-1"></div>;
                   
                   return (
                     <div key={index} className="mb-1">
@@ -235,14 +237,22 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
                           <span className="mr-2">•</span>
                           <span>{trimmedLine.replace(/^[•\-]\s*/, '')}</span>
                         </div>
+                      ) : trimmedLine.startsWith('*') ? (
+                        <div className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{trimmedLine.replace(/^\*\s*/, '')}</span>
+                        </div>
                       ) : (
-                        <div>{trimmedLine}</div>
+                        <div className="flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{trimmedLine}</span>
+                        </div>
                       )}
                     </div>
                   );
                 })
               ) : (
-                <div className="text-gray-500 italic text-xs">Add content to this custom section...</div>
+                <div className="text-xs text-gray-400 italic">No content added yet</div>
               )}
             </div>
           </div>

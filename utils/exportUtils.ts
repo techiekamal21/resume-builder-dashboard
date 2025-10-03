@@ -9,42 +9,71 @@ export const exportToPDF = async (elementId: string, filename: string = 'resume.
   if (!element) return;
 
   try {
-    // Find all resume pages
-    const resumePages = element.querySelectorAll('.resume-page');
+    // Add export mode class to body
+    document.body.classList.add('export-mode');
     
-    if (resumePages.length === 0) {
-      // Fallback to single page export
-      return exportSinglePageToPDF(element, filename);
-    }
+    // Hide page break indicators and other non-print elements
+    const nonPrintElements = element.querySelectorAll('.no-print, .page-break-indicator');
+    nonPrintElements.forEach(el => {
+      (el as HTMLElement).style.display = 'none';
+    });
 
+    // Wait for styles to apply
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    // For now, capture the entire resume container as a single image
+    // This ensures all content is captured properly
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      backgroundColor: '#ffffff',
+      width: 794, // A4 width in pixels at 96 DPI (210mm)
+      scrollX: 0,
+      scrollY: 0,
+      windowWidth: 1200,
+      logging: false,
+    });
+
+    const imgData = canvas.toDataURL('image/png', 1.0);
     const pdf = new jsPDF('p', 'mm', 'a4');
-    let isFirstPage = true;
+    
+    const pdfWidth = 210; // A4 width in mm
+    const pdfHeight = 297; // A4 height in mm
+    const imgWidth = pdfWidth;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    
+    let heightLeft = imgHeight;
+    let position = 0;
 
-    for (let i = 0; i < resumePages.length; i++) {
-      const page = resumePages[i];
-      const canvas = await html2canvas(page as HTMLElement, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: '#ffffff',
-        width: 794, // A4 width in pixels at 96 DPI
-        height: 1123, // A4 height in pixels at 96 DPI
-      });
+    // Add first page
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pdfHeight;
 
-      const imgData = canvas.toDataURL('image/png');
-      
-      if (!isFirstPage) {
-        pdf.addPage();
-      }
-      
-      // Add image to fit exactly on A4 page
-      pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
-      isFirstPage = false;
+    // Add additional pages if content is longer than one page
+    while (heightLeft >= 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pdfHeight;
     }
+
+    // Clean up
+    document.body.classList.remove('export-mode');
+    nonPrintElements.forEach(el => {
+      (el as HTMLElement).style.display = '';
+    });
 
     pdf.save(filename);
   } catch (error) {
     console.error('Error exporting to PDF:', error);
+    
+    // Clean up in case of error
+    document.body.classList.remove('export-mode');
+    const nonPrintElements = element.querySelectorAll('.no-print, .page-break-indicator');
+    nonPrintElements.forEach(el => {
+      (el as HTMLElement).style.display = '';
+    });
   }
 };
 
