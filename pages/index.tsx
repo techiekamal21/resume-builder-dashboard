@@ -9,6 +9,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { Download, FileText, Eye, AlertCircle, X } from 'lucide-react';
@@ -324,6 +325,13 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-center space-x-4">
+                  <Link
+                    href="/changelog"
+                    className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium"
+                  >
+                    📋 What's New
+                  </Link>
+                  
                   <button
                     onClick={() => setIsPreviewMode(!isPreviewMode)}
                     className={`flex items-center px-4 py-2 rounded-md transition-colors ${isPreviewMode
